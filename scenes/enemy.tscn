@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3wnkcc5f0uw4"]
+
+[ext_resource type="Texture2D" uid="uid://l33xxtl5uc8a" path="res://assets/alien-0001.png" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://bdt4ouvh7k53u" path="res://scripts/enemy.gd" id="1_md0e3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_md0e3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7p1mj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7p1mj"]
+radius = 16.0
+
+[node name="enemy" type="RigidBody2D"]
+physics_interpolation_mode = 2
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_md0e3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-44, -10)
+rotation = 3.132866
+scale = Vector2(2.455, 2.455)
+sprite_frames = SubResource("SpriteFrames_md0e3")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-25, -5)
+shape = SubResource("CircleShape2D_7p1mj")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-26, -6)

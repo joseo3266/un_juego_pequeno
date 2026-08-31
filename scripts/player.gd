@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
+		$AnimatedSprite2D.play()
 
 #	limitado a pantalla
 	position += velocity * delta
